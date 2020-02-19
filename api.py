@@ -5,5 +5,10 @@ client = foursquare.Foursquare(
     client_secret='1CEWCHG0YU00VP1JZ4P0T0VRNOX43FB2IIUE3G1F511TEGRX'
 )
 
-if __name__ == '__main__':
-    print(client.venues.search(params={'near':'spokane wa'}))
+def venues_by_cityname(cityname):
+    params = dict(near=cityname)
+    try:
+        data = client.venues.search(params=params)
+        return sorted([v['id'] for v in data['venues']])
+    except foursquare.FailedGeocode:
+        return None
