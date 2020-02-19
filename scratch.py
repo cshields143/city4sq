@@ -11,10 +11,9 @@ r_prefix = 'cache/'
 w_prefix = 'cache/results/'
 
 def pick_next():
-    try:
-        return random.choice(os.listdir(r_prefix).remove('results'))
-    except IndexError:
-        return None
+    names = os.listdir(r_prefix)
+    names.remove('results')
+    return None if len(names) == 0 else random.choice(names)
 
 def retrieve_q(fn):
     with open(fn, 'r') as fp:
