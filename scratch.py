@@ -12,7 +12,7 @@ w_prefix = 'cache/results/'
 
 def pick_next():
     try:
-        return random.choice(os.listdir(r_prefix))
+        return random.choice(os.listdir(r_prefix).remove('results'))
     except IndexError:
         return None
 
