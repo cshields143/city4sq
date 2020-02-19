@@ -1,4 +1,4 @@
-import foursquare
+import foursquare, time
 
 client = foursquare.Foursquare(
     client_id='Y1CPCQJRBWVHOPPLP1IHFWVYRSIGKNDY4PN32X1OWCSAVVPN',
@@ -12,3 +12,6 @@ def venues_by_cityname(cityname):
         return sorted([v['id'] for v in data['venues']])
     except foursquare.FailedGeocode:
         return None
+    except foursquare.ServerError:
+        time.sleep(60)
+        return venues_by_cityname(cityname)
