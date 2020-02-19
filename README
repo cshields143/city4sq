@@ -12,7 +12,7 @@ Solution:
 
 This allows us to queue 30,000 requests to Foursquare & fail gracefully if there's an error
 
-(Current status: ~28,000 cities have been looked up)
+(Current status: *DONE*)
 
 `cache/`: The directory of files representing the cities that still have to be looked up
 
