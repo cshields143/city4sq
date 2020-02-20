@@ -12,8 +12,20 @@ Solution:
 
 This allows us to queue 30,000 requests to Foursquare & fail gracefully if there's an error
 
-(Current status: *DONE*)
-
 `cache/`: The directory of files representing the cities that still have to be looked up
 
 `cache/results/`: The directory of files representing a sample of venues for the given cities (or an error message if the city name was invalid)
+
+To run the full lookup process:
+
+    python autosearch.py
+
+After the process, to sort the results:
+
+    python process_cache.py
+
+This consolidates cities that:
+
+- Had a non-empty list of venues (stored in `venues/`)
+- Had an empty list of venues (stored in `empty_cities.txt`)
+- Were invalid names (stored in `invalid_cities.txt`)
