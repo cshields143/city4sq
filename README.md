@@ -27,5 +27,5 @@ After the process, to sort the results:
 This consolidates cities that:
 
 - Had a non-empty list of venues (stored in `venues/`)
-- Had an empty list of venues (stored in `empty_cities.txt`)
-- Were invalid names (stored in `invalid_cities.txt`)
+- Had an empty list of venues (stored in `empty_cities.json`)
+- Were invalid names (stored in `invalid_cities.json`)
