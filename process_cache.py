@@ -2,8 +2,7 @@ import os, json
 from tqdm import tqdm
 
 rpath = 'cache/results/'
-wpath = 'venues/'
-
+vens = dict()
 invalids = dict()
 empties = dict()
 
@@ -22,10 +21,11 @@ for fn in tqdm(os.listdir(rpath)):
     elif data == '':
         empties[fullcity] = citydata[fullcity]
     else:
-        with open(wpath + fn, 'w') as fp:
-            fp.write(data)
+        vens[fullcity] = data.split('\n')
 
-with open('invalid_cities.json', 'w') as fp:
+with open ('venues/ids.json', 'w') as fp:
+    json.dump(vens, fp)
+with open('venues/invalid_cities.json', 'w') as fp:
     json.dump(invalids, fp)
-with open('empty_cities.json', 'w') as fp:
+with open('venues/empty_cities.json', 'w') as fp:
     json.dump(empties, fp)
